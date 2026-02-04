@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 52, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/iamra/Desktop/ESIPNAYANSITE/app/api/counter/route.ts"],"sourcesContent":["import { NextRequest, NextResponse } from 'next/server';\r\n\r\n// Import Vercel KV SDK\r\nimport { kv } from '@vercel/kv';\r\n\r\nconst COUNTER_KEY = 'download_counter';\r\n\r\nexport async function GET() {\r\n  // Get the current counter value\r\n  let count = await kv.get(COUNTER_KEY);\r\n  if (typeof count !== 'number') count = 0;\r\n  return NextResponse.json({ count });\r\n}\r\n\r\nexport async function POST() {\r\n  // Increment the counter atomically\r\n  const count = await kv.incr(COUNTER_KEY);\r\n  return NextResponse.json({ count });\r\n}\r\n"],"names":[],"mappings":";;;;;;AAAA;AAEA,uBAAuB;AACvB;;;AAEA,MAAM,cAAc;AAEb,eAAe;IACpB,gCAAgC;IAChC,IAAI,QAAQ,MAAM,uJAAE,CAAC,GAAG,CAAC;IACzB,IAAI,OAAO,UAAU,UAAU,QAAQ;IACvC,OAAO,gJAAY,CAAC,IAAI,CAAC;QAAE;IAAM;AACnC;AAEO,eAAe;IACpB,mCAAmC;IACnC,MAAM,QAAQ,MAAM,uJAAE,CAAC,IAAI,CAAC;IAC5B,OAAO,gJAAY,CAAC,IAAI,CAAC;QAAE;IAAM;AACnC"}}]
-}
