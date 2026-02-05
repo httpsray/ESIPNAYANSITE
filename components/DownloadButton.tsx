@@ -47,41 +47,32 @@ export default function DownloadButton({ variant = "large", className = "" }: Do
     }
   };
 
-  const downloadFromSupabase = async () => {
+  const downloadFile = async () => {
     try {
       // Increment the download counter
       await fetch("/api/counter", { method: "POST" });
 
-      // Get the file from Supabase Storage
-      const { data, error } = await supabase.storage
-        .from('games')
-        .download('E-SipnayanGames-Setup.exe');
-
-      if (error) {
-        console.error('Error downloading file:', error);
-        return;
-      }
-
       // Create a download link and trigger it
-      const url = URL.createObjectURL(data);
       const link = document.createElement("a");
-      link.href = url;
+      link.href = gameData.downloads.windows.url;
       link.download = "E-SipnayanGames-Setup.exe";
+      link.target = "_self";
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
-      URL.revokeObjectURL(url);
-    } cbutton
+    } catch (error) {
+      console.error("Error downloading file:", error);
+    }
   };
 
   const handleContinueDownload = () => {
     setShowModal(false);
-    downloadFromSupabase();
+    downloadFile();
   };
 
   const buttonStyles = variant === "large" 
     ? "btn-accent px-6 md:px-10 py-3 md:py-4 text-base md:text-lg inline-flex items-center gap-2 md:gap-3"
-    : "bbuttonn-accent py-3 md:py-4 text-sm md:text-base text-center flex items-center justify-center gap-2 w-full";
+    : "btn-accent py-3 md:py-4 text-sm md:text-base text-center flex items-center justify-center gap-2 w-full";
 
   const iconSize = variant === "large" ? "w-6 h-6" : "w-4 h-4 md:w-5 md:h-5";
   const buttonText = variant === "large" ? "Download for Windows" : "Download Now";
