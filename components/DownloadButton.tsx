@@ -37,37 +37,24 @@ export default function DownloadButton({ variant = "large", className = "" }: Do
     }
   }, []);
 
-  const handleDownloadClick = async (e: React.MouseEvent) => {
-    e.preventDefault();
-    
+  const handleDownloadClick = (e: React.MouseEvent) => {
     if (!isWindows) {
+      e.preventDefault();
       setShowModal(true);
-    } else {
-      await downloadFile();
     }
-  };
-
-  const downloadFile = async () => {
-    try {
-      // Increment the download counter
-      await fetch("/api/counter", { method: "POST" });
-
-      // Create a download link and trigger it
-      const link = document.createElement("a");
-      link.href = gameData.downloads.windows.url;
-      link.download = "E-SipnayanGames-Setup.exe";
-      link.target = "_self";
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    } catch (error) {
-      console.error("Error downloading file:", error);
-    }
+    // For Windows, let browser handle href normally
+    // Counter increment happens in background
+    fetch("/api/counter", { method: "POST" }).catch(err => console.error("Counter error:", err));
   };
 
   const handleContinueDownload = () => {
     setShowModal(false);
-    downloadFile();
+    // Increment counter
+    fetch("/api/counter", { method: "POST" }).catch(err => console.error("Counter error:", err));
+    // Trigger download
+    const link = document.createElement("a");
+    link.href = gameData.downloads.windows.url;
+    link.click();
   };
 
   const buttonStyles = variant === "large" 
