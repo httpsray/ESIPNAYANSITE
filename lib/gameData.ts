@@ -26,7 +26,7 @@ export const gameData = {
       type: ".exe",
       size: "233 MB",
       version: "1.0.0",
-      url: "/downloads/E-SipnayanGames-Setup.exe",
+      url: "https://github.com/httpsray/ESIPNAYANSITE/releases/download/V.1.0.0/E-SipnayanGames-Setup.exe",
       sha256: "8C55D330A205F816743663254B724431B7768B3D5481C3F04DFA444C4E85CCCB",
     },
   },
