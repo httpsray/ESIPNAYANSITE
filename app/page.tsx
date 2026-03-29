@@ -4,7 +4,6 @@ import HeroCarousel from "@/components/HeroCarousel";
 import GameCarousel from "@/components/GameCarousel";
 import DownloadButton from "@/components/DownloadButton";
 import Header from "@/components/Header";
-import DownloadCounter from "@/components/DownloadCounter";
 
 export default function Home() {
   return (
@@ -201,10 +200,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Download Counter */}
-          <div className="text-center">
-            <DownloadCounter />
-          </div>
         </div>
       </section>
 

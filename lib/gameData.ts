@@ -1,7 +1,7 @@
 export const gameData = {
   name: "E-SIPNAYAN",
   tagline: "Learn geometry through traditional Filipino games. Master area and surface area concepts with Mathpiko, Tumbang Preso, and Luksong Baka.",
-  version: "1.0.0",
+  version: "1.0.1",
   lastUpdated: "January 17, 2026",
 
   // Game features for hero section
@@ -25,8 +25,8 @@ export const gameData = {
       name: "Windows Installer",
       type: ".exe",
       size: "233 MB",
-      version: "1.0.0",
-      url: "https://github.com/httpsray/ESIPNAYANSITE/releases/download/V.1.0.0/E-SipnayanGames-Setup.exe",
+      version: "1.0.1",
+      url: "https://github.com/httpsray/ESIPNAYANSITE/releases/download/V.1.0.1/E-SipnayanGames.exe",
       sha256: "8C55D330A205F816743663254B724431B7768B3D5481C3F04DFA444C4E85CCCB",
     },
   },

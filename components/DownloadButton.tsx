@@ -42,15 +42,10 @@ export default function DownloadButton({ variant = "large", className = "" }: Do
       e.preventDefault();
       setShowModal(true);
     }
-    // For Windows, let browser handle href normally
-    // Counter increment happens in background
-    fetch("/api/counter", { method: "POST" }).catch(err => console.error("Counter error:", err));
   };
 
   const handleContinueDownload = () => {
     setShowModal(false);
-    // Increment counter
-    fetch("/api/counter", { method: "POST" }).catch(err => console.error("Counter error:", err));
     // Trigger download
     const link = document.createElement("a");
     link.href = gameData.downloads.windows.url;
